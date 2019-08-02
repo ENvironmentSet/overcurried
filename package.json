@@ -1,11 +1,11 @@
 {
-  "name": "oversomething",
+  "name": "overcurried",
   "private": true,
-  "description": "oversomething is modernized Gatsby starter blog",
-  "version": "0.0.1-alpha.2",
+  "description": "Personal blog of ENvironmentSet based on oversomething.",
+  "version": "0.0.0",
   "author": "Jaewon Seo <herryseo1@gmail.com>",
   "bugs": {
-    "url": "https://github.com/ENvironmentSet/oversomething/issues"
+    "url": "https://github.com/ENvironmentSet/overcurried/issues"
   },
   "dependencies": {
     "@emotion/core": "^10.0.14",
@@ -40,14 +40,14 @@
     "typography": "^0.16.19",
     "typography-theme-wordpress-2016": "^0.16.19"
   },
-  "homepage": "https://github.com/ENvironmentSet/oversomething#readme",
+  "homepage": "https://github.com/ENvironmentSet/overcurried#readme",
   "keywords": [
     "gatsby"
   ],
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ENvironmentSet/oversomething.git"
+    "url": "git+https://github.com/ENvironmentSet/overcurried.git"
   },
   "scripts": {
     "build": "gatsby build",
@@ -60,17 +60,18 @@
   },
   "oversomething": {
     "siteMetadata": {
-      "title": "oversomething",
+      "title": "overcurried",
       "author": "Jaewon Seo",
       "description": "I believe that knowledge becomes valuable when we share it with others.",
-      "siteUrl": "https://oversomething.netlify.com",
+      "siteUrl": "https://overcurried.netlify.com",
       "social": {
         "github": "https://github.com/ENvironmentSet",
         "twitter": "https://twitter.com/NvironmentE"
       },
-      "something": "？",
-      "theme": "github"
+      "something": "\uD83C\uDF5B",
+      "theme": "darker"
     },
+    "gaTrackingId": "UA-131792068-2",
     "useIcon": false
   }
 }

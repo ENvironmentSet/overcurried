@@ -8,7 +8,7 @@ export default function Markdown({ children }) {
       a {
         color: ${pickColor('hyperLink')};
       }
-      p, span, small, h1, h2, h3, h4, h5, h6 {
+      p, span, small, h1, h2, h3, h4, h5, h6, li, th, td {
         color: ${pickColor('foreground')};
       }
       strong {
