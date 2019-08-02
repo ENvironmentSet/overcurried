@@ -1,0 +1,76 @@
+{
+  "name": "oversomething",
+  "private": true,
+  "description": "oversomething is modernized Gatsby starter blog",
+  "version": "0.0.1-alpha.2",
+  "author": "Jaewon Seo <herryseo1@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/ENvironmentSet/oversomething/issues"
+  },
+  "dependencies": {
+    "@emotion/core": "^10.0.14",
+    "@emotion/styled": "^10.0.14",
+    "cosmiconfig": "^5.2.1",
+    "emotion-theming": "^10.0.14",
+    "gatsby": "^2.13.41",
+    "gatsby-image": "^2.2.7",
+    "gatsby-plugin-google-analytics": "^2.1.4",
+    "gatsby-plugin-manifest": "^2.2.4",
+    "gatsby-plugin-offline": "^2.2.4",
+    "gatsby-plugin-react-helmet": "^3.1.2",
+    "gatsby-plugin-robots-txt": "^1.5.0",
+    "gatsby-plugin-sharp": "^2.2.9",
+    "gatsby-plugin-sitemap": "^2.2.3",
+    "gatsby-plugin-typography": "^2.3.2",
+    "gatsby-remark-copy-linked-files": "^2.1.3",
+    "gatsby-remark-images": "^3.1.7",
+    "gatsby-remark-prismjs": "^3.3.3",
+    "gatsby-remark-responsive-iframe": "^2.2.4",
+    "gatsby-remark-smartypants": "^2.1.2",
+    "gatsby-source-filesystem": "^2.1.6",
+    "gatsby-transformer-remark": "^2.6.9",
+    "gatsby-transformer-sharp": "^2.2.4",
+    "prismjs": "^1.17.1",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-helmet": "^5.2.1",
+    "react-typography": "^0.16.19",
+    "typeface-merriweather": "0.0.72",
+    "typeface-montserrat": "0.0.75",
+    "typography": "^0.16.19",
+    "typography-theme-wordpress-2016": "^0.16.19"
+  },
+  "homepage": "https://github.com/ENvironmentSet/oversomething#readme",
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ENvironmentSet/oversomething.git"
+  },
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "start": "npm run develop",
+    "serve": "gatsby serve"
+  },
+  "engines": {
+    "node": ">=10.9"
+  },
+  "oversomething": {
+    "siteMetadata": {
+      "title": "oversomething",
+      "author": "Jaewon Seo",
+      "description": "I believe that knowledge becomes valuable when we share it with others.",
+      "siteUrl": "https://oversomething.netlify.com",
+      "social": {
+        "github": "https://github.com/ENvironmentSet",
+        "twitter": "https://twitter.com/NvironmentE"
+      },
+      "something": "？",
+      "theme": "github"
+    },
+    "useIcon": false
+  }
+}
