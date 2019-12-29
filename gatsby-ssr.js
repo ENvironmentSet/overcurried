@@ -1,11 +1,15 @@
+import 'typeface-montserrat';
+import 'typeface-merriweather';
+import 'prismjs/themes/prism-okaidia.css';
+
 import React from 'react';
 
-import AppEnvironment from 'components/templates/AppEnvironment';
+import AppEnvironment from 'templates/AppEnvironment';
 
-export const wrapPageElement = ({ element }) => {
+export function wrapPageElement({ element }) {
   return (
     <AppEnvironment>
       {element}
     </AppEnvironment>
   );
-};
+}
