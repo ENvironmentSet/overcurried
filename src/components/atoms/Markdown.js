@@ -17,6 +17,10 @@ export default function Markdown({ children }) {
       hr {
         background-color: ${pickColor('foreground')};
       }
+      blockquote {
+        margin-left: 0;
+        border-left-color: ${pickColor('foreground')};
+      }
   `;
 
   return (
