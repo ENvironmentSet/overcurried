@@ -28,7 +28,7 @@ somethings: 1
 시간을 거슬러, 이야기는 자바스크립트의 초기 버전인 ES1에서 시작됩니다.
 
 ES1에는 Variable Object라는 특별한 객체가 있었습니다.
-이 객체는 각 스코프 마다 하나씩 생성되어 그 스코프에 해당하는 바인딩을 저장하는 용도로 사용되었었습니다.
+이 객체는 각 스코프 마다 하나씩 생성되어 그 스코프에 해당하는 바인딩을 저장하는 용도로 사용되었었지요.
 
 ```javascript
 // Variable Object G: { a: 1, f: function f() ... }
@@ -42,7 +42,7 @@ function f() {
 }
 ```
 
-Variable Object는 개별적으로 사용되지는 않았고, 리스트에 담겨 참조 환경(*referencing environment*, a.k.a *scope chain*)을 구성하는 데 쓰였었습니다.
+Variable Object는 개별적으로 사용되지는 않았고, 리스트에 담겨 [참조 환경(*referencing environment*, a.k.a *scope chain*)](http://courses.cs.vt.edu/~cs3304/Spring00/notes/Chapter-4/tsld030.htm)을 구성하는 데 쓰였었습니다.
 
 ```javascript
 // Variable Object G: { a: 1, f: function f() ... }
@@ -58,12 +58,12 @@ function f() {
 }
 ```
 
-각 스코프 별로 생성되는 Variable Object는 조금씩 차이가 있었습니다.
+또한, 각 스코프 별로 생성되는 Variable Object는 조금씩 차이가 있었습니다.
 
-| 스코프 | Variable Object | 동작의 차이 |
-|------|-----------------|-----------|
+| 스코프 | 이름 | 동작의 차이 |
+|------|-----|-----------|
 | 전역 스코프 | 전역 객체(*Global Object*) | 구현체의 정의에 따라 다름 |
-| 함수 스코프 | Activation Object | 객체에 반영되는 모든 바인딩은 삭제 불가능, `arguments` 프로퍼티를 가짐 |
+| 함수 스코프 | Activation Object | 객체에 반영된 모든 바인딩은 삭제 불가능, `arguments` 프로퍼티를 가짐 |
 | With 문 | 별도의 이름 없음 | 사용자의 정의에 따라 다름 |
 
 익숙한 이름이 보이시나요? 전역 객체요!
