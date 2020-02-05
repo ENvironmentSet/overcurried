@@ -18,8 +18,6 @@ a = 1; // 이것과 같다는 이야기입니다.
 
 오늘은 **`var` 생략 문법이 존재하지 않음**을 다섯 가지 이유를 통해 보여드리도록 하겠습니다.
 
-> **NOTICE**: 정확하게 따져 보면 이렇다는 이야기이지, 이것들이 면접 질문으로 나오거나 개발할 때 발목을 잡을 일은 전무하니 그저 재미있는 TMI 하나 알아간다는 생각으로 읽어주셨으면 하는 바람입니다.
-
 ## 1. `var` 생략형이라 알려진 코드는 `var` 문의 문법 정의에 포함되지 않는다
 
 가장 확실한 레퍼런스죠, [자바스크립트의 명세](https://www.ecma-international.org/publications/standards/Ecma-262.htm)의 [var 문 정의](https://www.ecma-international.org/ecma-262/10.0/index.html#sec-variable-statement)에는 `var` 예약어가 var 문에서 필수적인 요소임이 나타나 있습니다.
