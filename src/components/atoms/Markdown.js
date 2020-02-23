@@ -21,6 +21,9 @@ export default function Markdown({ children }) {
         margin-left: 0;
         border-left-color: ${pickColor('foreground')};
       }
+      th, td {
+        border-color: ${pickColor('foreground')};
+      }
   `;
 
   return (
