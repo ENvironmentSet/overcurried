@@ -103,13 +103,6 @@ module.exports = {
         `,
         feeds: [
           {
-            serialize: ({ query: { site: { siteMetadata: { siteUrl } }, allMarkdownRemark: { edges } } }) =>
-              edges.map(({ node: { frontmatter, fields: { slug }, html } }) => ({
-                  ...frontmatter,
-                  url: encodeURI(siteUrl + slug),
-                  guid: slug,
-                  custom_elements: [{ "content:encoded": html }]
-              })),
             query: `
               {
                 allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
@@ -121,7 +114,7 @@ module.exports = {
                       }
                       frontmatter {
                         title
-                        date(formatString: "MMMM DD, YYYY")
+                        date
                         description
                       }
                     }
@@ -129,7 +122,15 @@ module.exports = {
                 }
               }
             `,
+            serialize: ({ query: { site: { siteMetadata: { siteUrl } }, allMarkdownRemark: { edges } } }) =>
+              edges.map(({ node: { frontmatter, fields: { slug }, html } }) => ({
+                ...frontmatter,
+                url: encodeURI(siteUrl + slug),
+                guid: slug,
+                custom_elements: [{ "content:encoded": html }]
+              })),
             output: '/rss.xml',
+            title: 'overcurried',
           },
         ],
       },
