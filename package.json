@@ -14,6 +14,7 @@
     "emotion-theming": "^10.0.14",
     "gatsby": "^2.13.41",
     "gatsby-image": "^2.2.7",
+    "gatsby-plugin-feed": "^2.3.27",
     "gatsby-plugin-google-analytics": "^2.1.4",
     "gatsby-plugin-manifest": "^2.2.37",
     "gatsby-plugin-offline": "^2.2.4",
@@ -63,6 +64,11 @@
       "title": "overcurried",
       "author": "Jaewon Seo",
       "description": "I believe that knowledge becomes valuable when we share it with others.",
+      "categories": [
+        "Programming", "Computer science", "Programming Language Theory",
+        "Type Theory", "Programming paradigms", "Programming Languages",
+        "Type-level programming", "Web programming", "Compilers"
+      ],
       "siteUrl": "https://overcurried.netlify.com",
       "social": {
         "github": "https://github.com/ENvironmentSet",

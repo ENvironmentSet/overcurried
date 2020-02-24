@@ -84,5 +84,55 @@ module.exports = {
       },
     },
     'gatsby-plugin-sitemap',
+    {
+      resolve: 'gatsby-plugin-feed',
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                author
+                description
+                categories
+                siteUrl
+                site_url: siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site: { siteMetadata: { siteUrl } }, allMarkdownRemark: { edges } } }) =>
+              edges.map(({ node: { frontmatter, fields: { slug }, html } }) => ({
+                  ...frontmatter,
+                  url: encodeURI(siteUrl + slug),
+                  guid: slug,
+                  custom_elements: [{ "content:encoded": html }]
+              })),
+            query: `
+              {
+                allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
+                  edges {
+                    node {
+                      html
+                      fields {
+                        slug
+                      }
+                      frontmatter {
+                        title
+                        date(formatString: "MMMM DD, YYYY")
+                        description
+                      }
+                    }
+                  }
+                }
+              }
+            `,
+            output: '/rss.xml',
+          },
+        ],
+      },
+    }
   ],
 };
