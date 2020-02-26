@@ -83,7 +83,7 @@ export default function Index({ data: { allMarkdownRemark: { edges } } }) {
   );
 };
 
-export const pageQuery = graphql`
+export const query = graphql`
   query {
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       edges {

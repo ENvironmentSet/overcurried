@@ -143,7 +143,7 @@ export default function Post(
   );
 }
 
-export const pageQuery = graphql`
+export const query = graphql`
   query PostBySlug($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id
