@@ -15,6 +15,8 @@ export default function useSiteMetadata() {
           }
           something
           theme
+          keywords
+          locale
         }
       }
     }

@@ -94,7 +94,7 @@ module.exports = {
                 title
                 author
                 description
-                categories
+                categories: keywords
                 siteUrl
                 site_url: siteUrl
               }

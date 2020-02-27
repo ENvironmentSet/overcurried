@@ -25,7 +25,10 @@ export default function NotFoundPage() {
 
   return (
     <BaseLayout>
-      <SEO title='404: Not Found' />
+      <SEO
+        title='404: Not Found'
+        description='Oops, My route function has produced ⊥, You should check your URI'
+      />
       <NotFoundMessage />
     </BaseLayout>
   );

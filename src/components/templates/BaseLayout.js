@@ -55,8 +55,8 @@ export default function BaseLayout({ children }) {
 
     return (
       <Row>
-        <HyperLink to={github}>Github</HyperLink>
-        <HyperLink to={twitter}>Twitter</HyperLink>
+        <HyperLink to={`https://github.com/${github}`}>Github</HyperLink>
+        <HyperLink to={`https://twitter.com/${twitter}`}>Twitter</HyperLink>
       </Row>
     );
   }

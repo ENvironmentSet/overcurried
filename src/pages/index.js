@@ -17,7 +17,7 @@ import { graphql } from 'gatsby';
 
 export default function Index({ data: { allMarkdownRemark: { edges } } }) {
   const posts = edges.map(({ node: { fields, frontmatter } }) => ({ ...fields, ...frontmatter }));
-  const { title } = useSiteMetadata();
+  const { title, description, keywords } = useSiteMetadata();
   function PostPreview({ post }) {
     function PostTitlePreview() {
       const StyledTitle = useConstant(() => styled(H3Text)`
@@ -76,7 +76,7 @@ export default function Index({ data: { allMarkdownRemark: { edges } } }) {
 
   return (
     <BaseLayout>
-      <SEO title={title} />
+      <SEO title={title} description={description} keywords={keywords.join()} />
       <Bio />
       <PostPreviewList posts={posts} />
     </BaseLayout>

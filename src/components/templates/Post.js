@@ -27,6 +27,7 @@ export default function Post(
             date,
             description,
             somethings,
+            keywords
           }
         }
     },
@@ -35,6 +36,7 @@ export default function Post(
       next
     }
   }) {
+  const { author } = useSiteMetadata();
   function PostHeader() {
     const PostTitle = useConstant(() => styled(H1Text)`
       margin-top: ${rhythm(1)};
@@ -135,7 +137,19 @@ export default function Post(
 
   return (
     <BaseLayout>
-      <SEO title={title} description={description} />
+      <SEO
+        title={title}
+        description={description}
+        keywords={keywords}
+        type='article'
+        additionalMetaInfo={{
+          article: {
+            published_time: date,
+            author,
+            tag: keywords
+          }
+        }}
+      />
       <PostHeader />
       <PostContent />
       <PostFooter previous={previous} next={next} />
@@ -153,6 +167,7 @@ export const query = graphql`
         date(formatString: "MMMM DD, YYYY")
         description
         somethings
+        keywords
       }
     }
   }

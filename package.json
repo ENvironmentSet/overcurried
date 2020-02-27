@@ -10,6 +10,7 @@
   "dependencies": {
     "@emotion/core": "^10.0.14",
     "@emotion/styled": "^10.0.14",
+    "@reach/router": "^1.3.1",
     "cosmiconfig": "^5.2.1",
     "emotion-theming": "^10.0.14",
     "gatsby": "^2.13.41",
@@ -64,18 +65,25 @@
       "title": "overcurried",
       "author": "Jaewon Seo",
       "description": "I believe that knowledge becomes valuable when we share it with others.",
-      "categories": [
-        "Programming", "Computer science", "Programming Language Theory",
-        "Type Theory", "Programming paradigms", "Programming Languages",
-        "Type-level programming", "Web programming", "Compilers"
+      "keywords": [
+        "Programming",
+        "Computer science",
+        "Programming Language Theory",
+        "Type Theory",
+        "Programming paradigms",
+        "Programming Languages",
+        "Type-level programming",
+        "Web programming",
+        "Compilers"
       ],
       "siteUrl": "https://overcurried.com",
       "social": {
-        "github": "https://github.com/ENvironmentSet",
-        "twitter": "https://twitter.com/NvironmentE"
+        "github": "ENvironmentSet",
+        "twitter": "NvironmentE"
       },
       "something": "🍛",
-      "theme": "darker"
+      "theme": "darker",
+      "locale": ["ko", "KR"]
     },
     "gaTrackingId": "UA-131792068-2",
     "useIcon": false
