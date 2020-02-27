@@ -51,12 +51,13 @@ export default function BaseLayout({ children }) {
     );
   }
   function BaseFooter() {
-    const { social: { github, twitter } } = useSiteMetadata();
+    const { social: { github, twitter, email } } = useSiteMetadata();
 
     return (
       <Row>
-        <HyperLink to={`https://github.com/${github}`}>Github</HyperLink>
-        <HyperLink to={`https://twitter.com/${twitter}`}>Twitter</HyperLink>
+        {github && <HyperLink to={`https://github.com/${github}`}>Github</HyperLink>}
+        {twitter && <HyperLink to={`https://twitter.com/${twitter}`}>Twitter</HyperLink>}
+        {email && <HyperLink to={`mailto:${email}`}>Email</HyperLink>}
       </Row>
     );
   }
