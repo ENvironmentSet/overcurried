@@ -12,12 +12,12 @@ export default function NotFoundPage() {
       <>
         <H1Text>Not Found</H1Text>
         <Text>
-          Oops, My router function has produced
+          Oops, My route function has produced
           {' '}
           <Accent>
             <HyperLink to='https://wiki.haskell.org/Bottom'>⊥</HyperLink>
           </Accent>,
-          You should check your URI parameters.
+          You should check your <HyperLink to='https://en.wikipedia.org/wiki/Uniform_Resource_Identifier'>URI</HyperLink>.
         </Text>
       </>
     );
