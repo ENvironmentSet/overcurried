@@ -12,6 +12,7 @@ export default function useSiteMetadata() {
           social {
             github
             twitter
+            email
           }
           something
           theme
