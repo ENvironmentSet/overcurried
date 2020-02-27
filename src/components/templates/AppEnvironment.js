@@ -16,7 +16,7 @@ export default function AppEnvironment({ children }) {
       <Global
         styles={
           css`
-           :root {
+            :root {
               background-color: ${theme.backgroundColor};
             }
           `
