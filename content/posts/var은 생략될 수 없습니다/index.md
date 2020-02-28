@@ -3,6 +3,7 @@ title: var은 생략될 수 없습니다
 date: 2019-12-29  
 description: 정말로요, 'var 문 var 생략 문법' 같은 건 자바스크립트에 없어요.
 somethings: 1  
+keywords: var statement, var 문, var 생략, var 키워드, 자바스크립트
 ---
 
 여기, 많은 자바스크립트 프로그래머들 사이에서 널리 퍼진 이야기가 하나 있습니다.
