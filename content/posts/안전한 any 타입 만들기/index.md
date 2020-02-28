@@ -3,6 +3,11 @@ title: 안전한 any 타입 만들기
 date: 2020-02-05  
 description: 타입스크립트에서 existential type 인코딩하기  
 somethings: 3  
+keywords: >
+   any, any type, any 타입, 타입스크립트, unknown, unknown type, unknown 타입, existential type,
+   타입 레벨 프로그래밍, type-level programming, 제네릭, 보편 양화사, Universal quantifier, 존재 양화사,
+   Existential quantifier, forall, there exist, forsome, 서브타입 관계, subtype relation, top type,
+   supertype, 슈퍼타입, 서브타입, subtype, 안전한 any 타입, 탑 타입, 타입 매개변수
 ---
 
 타입스크립트에서 가장 유용한 타입은 무엇일까요?
