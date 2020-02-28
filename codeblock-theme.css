@@ -11,11 +11,11 @@ Modified original one to use in gatsby
 code[class*="language-"],
 pre[class*="language-"] {
     font-family: Consolas, Menlo, Monaco, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", "Courier New", Courier, monospace;
-    font-size: 1em; /*font-size: 14px;*/
-    line-height: 1.5; /*line-height: 1.375;*/
+    font-size: 1em;
+    line-height: 1.5;
     direction: ltr;
     text-align: left;
-    white-space: pre;
+    white-space: normal;
     word-spacing: normal;
     word-break: normal;
     word-wrap: normal;
