@@ -3,9 +3,8 @@ title: 연산자인 것과 연산자가 아닌 것
 date: 2019-08-20  
 description: 아니 글쎄 그건 전개 연산자가 아니라니까요.
 somethings: 1  
+keywords: 전개 연산자, 연산자, operator, spread operator, 전개 구문, spread syntax, ..., 자바스크립트, es6, es6 문법
 ---
-
-![`...` is Spread operator, change my mind](thumbnail.jpg)
 
 여기, 자바스크립트 커뮤니티에 널리 퍼진 작은 오해가 하나 있습니다.
 바로 `{ a: 2, ...{ b: 1 } }`과 같은 표현식에서 쓰이는 `...`에 대한 오해지요.
