@@ -1,8 +1,9 @@
 const cosmiconfig = require('cosmiconfig');
 const explorer = cosmiconfig('oversomething');
-const { config: { siteMetadata, ...config }, isEmpty } = explorer.searchSync(__dirname);
+const searchResult = explorer.searchSync(__dirname);
 
-if (isEmpty) throw new Error('Can\'t find site configuration');
+if (searchResult === null) throw new Error('Can\'t find site configuration');
+const { config: { siteMetadata, ...config } } = searchResult;
 
 module.exports = {
   siteMetadata,
