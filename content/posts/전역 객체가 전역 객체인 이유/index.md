@@ -3,6 +3,9 @@ title: 전역 객체가 전역 객체인 이유
 date: 2020-01-18  
 description: 시간의 흐름에 묻혀버린 이야기  
 somethings: 1  
+keywords: > 
+  자바스크립트, 전역 객체, global object, 스코프, scope, Variable object, var 문, 전역 변수, global variable,
+  Activation object, var statement, 전역 객체의 속성, 전역 객체의 프로퍼티
 ---
 
 ![오리너구리](./platypus.jpg)
