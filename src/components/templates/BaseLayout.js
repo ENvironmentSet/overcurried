@@ -1,14 +1,11 @@
-import React from 'react';
+import * as React from 'react';
 import styled from '@emotion/styled';
-
 import HyperLink from 'components/atoms/HyperLink';
 import Row from 'components/templates/Row';
 import Accent from 'components/atoms/Accent';
 import { H1Text } from 'components/atoms/Text';
-
 import useSiteMetadata from 'utils/useSiteMetadata';
 import useConstant from 'utils/useConstant';
-
 import { rhythm, scale } from 'utils/typography';
 
 export default function BaseLayout({ children }) {

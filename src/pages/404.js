@@ -1,5 +1,4 @@
-import React from 'react';
-
+import * as React from 'react';
 import SEO from 'components/templates/SEO';
 import BaseLayout from 'components/templates/BaseLayout';
 import HyperLink from 'components/atoms/HyperLink';

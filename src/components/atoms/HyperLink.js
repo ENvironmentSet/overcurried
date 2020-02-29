@@ -1,8 +1,6 @@
-import React from 'react';
+import * as React from 'react';
 import styled from '@emotion/styled';
-
 import { Link as GatsbyLink } from 'gatsby';
-
 import { pickColor } from 'constants/themes';
 
 export default function HyperLink({ to, children }) {

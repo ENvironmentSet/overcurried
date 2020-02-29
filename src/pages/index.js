@@ -1,6 +1,5 @@
-import React from 'react';
+import * as React from 'react';
 import styled from '@emotion/styled';
-
 import Bio from 'components/molecules/Bio';
 import BaseLayout from 'components/templates/BaseLayout';
 import SEO from 'components/templates/SEO';
@@ -8,11 +7,9 @@ import HyperLink from 'components/atoms/HyperLink';
 import Row from 'components/templates/Row';
 import { Text, SmallText, H3Text } from 'components/atoms/Text';
 import Accent from 'components/atoms/Accent';
-
 import { rhythm } from 'utils/typography';
 import useConstant from 'utils/useConstant';
 import useSiteMetadata from 'utils/useSiteMetadata';
-
 import { graphql } from 'gatsby';
 
 export default function Index({ data: { allMarkdownRemark: { edges } } }) {

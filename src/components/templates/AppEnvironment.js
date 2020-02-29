@@ -1,13 +1,9 @@
 import 'typeface-montserrat';
 import 'typeface-merriweather';
-
-import React from 'react';
-
+import * as React from 'react';
 import { Global, css } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
-
 import useSiteMetadata from 'utils/useSiteMetadata';
-
 import { Theme } from 'constants/themes';
 
 export default function AppEnvironment({ children }) {

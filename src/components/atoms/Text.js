@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-
 import { pickColor } from 'constants/themes';
 
 export const Text = styled.p`

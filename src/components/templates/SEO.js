@@ -1,8 +1,6 @@
-import React from 'react';
-
+import * as React from 'react';
 import Helmet from 'react-helmet';
 import { useLocation } from '@reach/router'
-
 import useSiteMetadata from 'utils/useSiteMetadata';
 
 function adaptMetaInformation(metaInformation) {
