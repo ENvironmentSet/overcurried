@@ -1,7 +1,6 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
 import Bio from 'components/molecules/Bio';
-import BaseLayout from 'components/templates/BaseLayout';
 import SEO from 'components/templates/SEO';
 import HyperLink from 'components/atoms/HyperLink';
 import Row from 'components/templates/Row';
@@ -72,11 +71,11 @@ export default function Index({ data: { allMarkdownRemark: { edges } } }) {
   }
 
   return (
-    <BaseLayout>
+    <>
       <SEO title={title} description={description} keywords={keywords.join()} />
       <Bio />
       <PostPreviewList posts={posts} />
-    </BaseLayout>
+    </>
   );
 };
 

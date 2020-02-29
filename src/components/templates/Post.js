@@ -3,7 +3,6 @@ import styled from '@emotion/styled';
 import HyperLink from 'components/atoms/HyperLink';
 import Bio from 'components/molecules/Bio';
 import SEO from 'components/templates/SEO';
-import BaseLayout from 'components/templates/BaseLayout';
 import Markdown from 'components/atoms/Markdown';
 import Row from 'components/templates/Row';
 import { Text, H1Text } from 'components/atoms/Text';
@@ -132,7 +131,7 @@ export default function Post(
   }
 
   return (
-    <BaseLayout>
+    <>
       <SEO
         title={title}
         description={description}
@@ -149,7 +148,7 @@ export default function Post(
       <PostHeader />
       <PostContent />
       <PostFooter previous={previous} next={next} />
-    </BaseLayout>
+    </>
   );
 }
 

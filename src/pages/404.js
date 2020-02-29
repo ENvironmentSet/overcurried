@@ -1,6 +1,5 @@
 import * as React from 'react';
 import SEO from 'components/templates/SEO';
-import BaseLayout from 'components/templates/BaseLayout';
 import HyperLink from 'components/atoms/HyperLink';
 import { Text, H1Text } from 'components/atoms/Text';
 import Accent from 'components/atoms/Accent';
@@ -23,12 +22,12 @@ export default function NotFoundPage() {
   }
 
   return (
-    <BaseLayout>
+    <>
       <SEO
         title='404: Not Found'
         description='Oops, My route function has produced ⊥, You should check your URI'
       />
       <NotFoundMessage />
-    </BaseLayout>
+    </>
   );
 };
