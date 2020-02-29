@@ -1,3 +1,6 @@
+import 'typeface-montserrat';
+import 'typeface-merriweather';
+
 import React from 'react';
 
 import { Global, css } from '@emotion/core';

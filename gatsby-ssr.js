@@ -1,6 +1,3 @@
-import 'typeface-montserrat';
-import 'typeface-merriweather';
-
 import React from 'react';
 
 import AppEnvironment from 'components/templates/AppEnvironment';
