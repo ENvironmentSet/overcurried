@@ -1,6 +1,5 @@
 import 'typeface-montserrat';
 import 'typeface-merriweather';
-import './codeblock-theme.css';
 
 import React from 'react';
 
