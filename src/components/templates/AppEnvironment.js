@@ -172,14 +172,6 @@ const buildGlobalStyle = ({ backgroundColor }) =>
       outline-offset: .4em;
     }
 
-    .line-numbers .line-numbers-rows {
-      border-right-color: #262631;
-    }
-
-    .line-numbers-rows > span:before {
-      color: #393949;
-    }
-
     .gatsby-highlight-code-line {
       background: rgba(221, 103, 44, 0.2);
       background: -webkit-linear-gradient(left, rgba(221, 103, 44, 0.2) 70%, rgba(221, 103, 44, 0));
