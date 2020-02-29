@@ -15,7 +15,12 @@ export default function useSiteMetadata() {
             email
           }
           something
-          theme
+          theme {
+            background
+            text
+            accent
+            hyperLink
+          }
           keywords
           locale
         }

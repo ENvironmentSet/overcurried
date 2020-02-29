@@ -5,19 +5,18 @@ import { ThemeProvider } from 'emotion-theming';
 
 import useSiteMetadata from 'utils/useSiteMetadata';
 
-import themes from 'constants/themes';
+import { Theme } from 'constants/themes';
 
 export default function AppEnvironment({ children }) {
-  const { theme: selectedTheme } = useSiteMetadata();
-  const theme = themes[selectedTheme];
+  const { theme: themeConfiguration } = useSiteMetadata();
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={new Theme(themeConfiguration)}>
       <Global
-        styles={
+        styles={({ backgroundColor }) =>
           css`
             :root {
-              background-color: ${theme.backgroundColor};
+              background-color: ${backgroundColor};
             }
           `
         }

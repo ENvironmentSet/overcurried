@@ -83,7 +83,12 @@
         "email": "herryseo1@gmail.com"
       },
       "something": "🍛",
-      "theme": "darker",
+      "theme": {
+        "background": "#212121",
+        "text": "#B0BEC5",
+        "accent": "#FF9800",
+        "hyperLink": "#80CBC4"
+      },
       "locale": ["ko", "KR"]
     },
     "gaTrackingId": "UA-131792068-2",
