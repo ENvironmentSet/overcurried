@@ -2,6 +2,7 @@ import * as React from 'react';
 import AppEnvironment from 'components/templates/AppEnvironment';
 import BaseLayout from 'components/templates/BaseLayout';
 import { nameComponent } from 'utils/nameComponent';
+import { getComponentName } from 'utils/getComponentName';
 
 function toWrapper(Component) {
   return nameComponent(
@@ -10,7 +11,7 @@ function toWrapper(Component) {
         {element}
       </Component>
     ),
-    typeof Component.displayName === 'string' ? Component.displayName : Component.name
+    `WrapElementWith${getComponentName(Component)}`
   );
 }
 
