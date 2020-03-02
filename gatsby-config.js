@@ -1,94 +1,94 @@
 const cosmiconfig = require('cosmiconfig');
-const explorer = cosmiconfig('oversomething');
-const searchResult = explorer.searchSync(__dirname);
+const searchResult = cosmiconfig('oversomething').searchSync(__dirname);
 
 if (searchResult === null) throw new Error('Can\'t find site configuration');
-const { config: { siteMetadata, ...config } } = searchResult;
+else {
+  const { config: { siteMetadata, ...config } } = searchResult;
 
-module.exports = {
-  siteMetadata,
-  plugins: [
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        path: `${__dirname}/content/posts`,
-        name: 'posts',
+  module.exports = {
+    siteMetadata,
+    plugins: [
+      {
+        resolve: 'gatsby-source-filesystem',
+        options: {
+          path: `${__dirname}/content/posts`,
+          name: 'posts',
+        },
       },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        path: `${__dirname}/content/assets`,
-        name: 'assets',
+      {
+        resolve: 'gatsby-source-filesystem',
+        options: {
+          path: `${__dirname}/content/assets`,
+          name: 'assets',
+        },
       },
-    },
-    {
-      resolve: 'gatsby-transformer-remark',
-      options: {
-        plugins: [
-          {
-            resolve: 'gatsby-remark-images',
-            options: {
-              maxWidth: 590,
+      {
+        resolve: 'gatsby-transformer-remark',
+        options: {
+          plugins: [
+            {
+              resolve: 'gatsby-remark-images',
+              options: {
+                maxWidth: 590,
+              },
             },
-          },
-          {
-            resolve: 'gatsby-remark-responsive-iframe',
-            options: {
-              wrapperStyle: 'margin-bottom: 1.0725rem',
+            {
+              resolve: 'gatsby-remark-responsive-iframe',
+              options: {
+                wrapperStyle: 'margin-bottom: 1.0725rem',
+              },
             },
-          },
-          'gatsby-remark-prismjs',
-          'gatsby-remark-copy-linked-files',
-          'gatsby-remark-smartypants',
-        ],
+            'gatsby-remark-prismjs',
+            'gatsby-remark-copy-linked-files',
+            'gatsby-remark-smartypants',
+          ],
+        },
       },
-    },
-    'gatsby-transformer-sharp',
-    'gatsby-plugin-sharp',
-    {
-      resolve: 'gatsby-plugin-google-analytics',
-      options: {
-        head: true,
-        trackingId: config.gaTrackingId || '',
+      'gatsby-transformer-sharp',
+      'gatsby-plugin-sharp',
+      {
+        resolve: 'gatsby-plugin-google-analytics',
+        options: {
+          head: true,
+          trackingId: config.gaTrackingId || '',
+        },
       },
-    },
-    {
-      resolve: 'gatsby-plugin-manifest',
-      options: {
-        name: siteMetadata.title,
-        description: siteMetadata.description,
-        start_url: '/',
-        background_color: '#212121',
-        theme_color: '#FF9800',
-        display: 'minimal-ui',
-        [config.useIcon && 'icon']: 'content/assets/icon.ico'
+      {
+        resolve: 'gatsby-plugin-manifest',
+        options: {
+          name: siteMetadata.title,
+          description: siteMetadata.description,
+          start_url: '/',
+          background_color: '#212121',
+          theme_color: '#FF9800',
+          display: 'minimal-ui',
+          [config.useIcon && 'icon']: 'content/assets/icon.ico'
+        },
       },
-    },
-    'gatsby-plugin-offline',
-    'gatsby-plugin-react-helmet',
-    {
-      resolve: 'gatsby-plugin-typography',
-      options: {
-        pathToConfigModule: 'src/utils/typography',
+      'gatsby-plugin-offline',
+      'gatsby-plugin-react-helmet',
+      {
+        resolve: 'gatsby-plugin-typography',
+        options: {
+          pathToConfigModule: 'src/utils/typography',
+        },
       },
-    },
-    {
-      resolve: 'gatsby-plugin-robots-txt',
-      options: {
-        policy: [
-          {
-            userAgent: '*',
-            allow: '/',
-          }
-        ],
+      {
+        resolve: 'gatsby-plugin-robots-txt',
+        options: {
+          policy: [
+            {
+              userAgent: '*',
+              allow: '/',
+            }
+          ],
+        },
       },
-    },
-    'gatsby-plugin-sitemap',
-    {
-      resolve: 'gatsby-plugin-feed',
-      options: {
-        query: `
+      'gatsby-plugin-sitemap',
+      {
+        resolve: 'gatsby-plugin-feed',
+        options: {
+          query: `
           {
             site {
               siteMetadata {
@@ -102,9 +102,9 @@ module.exports = {
             }
           }
         `,
-        feeds: [
-          {
-            query: `
+          feeds: [
+            {
+              query: `
               {
                 allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
                   edges {
@@ -123,18 +123,19 @@ module.exports = {
                 }
               }
             `,
-            serialize: ({ query: { site: { siteMetadata: { siteUrl } }, allMarkdownRemark: { edges } } }) =>
-              edges.map(({ node: { frontmatter, fields: { slug }, html } }) => ({
-                ...frontmatter,
-                url: encodeURI(siteUrl + slug),
-                guid: slug,
-                custom_elements: [{ "content:encoded": html }]
-              })),
-            output: '/rss.xml',
-            title: 'overcurried',
-          },
-        ],
-      },
-    }
-  ],
-};
+              serialize: ({ query: { site: { siteMetadata: { siteUrl } }, allMarkdownRemark: { edges } } }) =>
+                edges.map(({ node: { frontmatter, fields: { slug }, html } }) => ({
+                  ...frontmatter,
+                  url: encodeURI(siteUrl + slug),
+                  guid: slug,
+                  custom_elements: [{ "content:encoded": html }]
+                })),
+              output: '/rss.xml',
+              title: 'overcurried',
+            },
+          ],
+        },
+      }
+    ],
+  };
+}
