@@ -83,15 +83,19 @@ export default function Post(
       margin-bottom: ${rhythm(1)};
     `);
     const PostNavigatorDiv = styled.ul`
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
+      display: grid;
+      grid-template-columns: 50% 50%;
       list-style: none;
       padding-top: 0;
     `;
     function PostNavigator({ destinationPost, rel }) {
+      const StyledLi = styled.li`
+        grid-column: ${rel === 'prev' ? 1 : 2};
+        justify-self: ${rel === 'prev' ? 'start' : 'end'};
+      `;
+
       return (
-        <li>
+        <StyledLi>
           <HyperLink to={destinationPost.fields.slug} rel={rel}>
             {
               rel === 'prev' ?
@@ -99,7 +103,7 @@ export default function Post(
                 `${destinationPost.frontmatter.title} →`
             }
           </HyperLink>
-        </li>
+        </StyledLi>
       );
     }
     function PreviousPostNavigator() {
