@@ -4,7 +4,7 @@ import * as React from 'react';
 import { Global, css } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
 import useSiteMetadata from 'utils/useSiteMetadata';
-import { Theme } from 'constants/themes';
+import Theme from 'utils/theme';
 
 export default function AppEnvironment({ children }) {
   const { theme: themeConfiguration } = useSiteMetadata();

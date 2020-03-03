@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
-import { pickColor } from 'constants/themes';
+import Theme from 'utils/theme';
 
 export default styled.hr`
-  background-color: ${pickColor('foreground')};
+  background-color: ${Theme.pickColor('foreground')};
 `;
