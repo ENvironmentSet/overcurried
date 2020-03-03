@@ -1,3 +1,3 @@
-export function getComponentName({ name, displayName = name }) {
+export default function getComponentName({ name, displayName = name }) {
   return displayName;
 }
