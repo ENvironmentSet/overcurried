@@ -14,59 +14,59 @@ import { graphql } from 'gatsby';
 export default function Index({ data: { allMarkdownRemark: { edges } } }) {
   const posts = edges.map(({ node: { fields, frontmatter } }) => ({ ...fields, ...frontmatter }));
   const { title, description, keywords } = useSiteMetadata();
-  function PostPreview({ post }) {
-    function PostTitlePreview() {
-      const StyledTitle = useConstant(() => styled(H3Text)`
+  function PostPreviewList({ posts }) {
+    function PostPreview({ post }) {
+      function PostTitlePreview() {
+        const StyledTitle = useConstant(() => styled(H3Text)`
         margin-bottom: ${rhythm(1/4)};
       `);
 
-      return (
-        <HyperLink to={post.slug}>
-          <StyledTitle>
-            <Accent>
-              {post.title}
-            </Accent>
-          </StyledTitle>
-        </HyperLink>
-      );
-    }
-    function PostAdditionalInformationPreview() {
-      function PostDatePreview() {
         return (
-          <SmallText>{post.date}</SmallText>
+          <HyperLink to={post.slug}>
+            <StyledTitle>
+              <Accent>
+                {post.title}
+              </Accent>
+            </StyledTitle>
+          </HyperLink>
         );
       }
-      function PostSomethingsPreview() {
-        const somethingAmount = parseInt(post.somethings);
-        const { something } = useSiteMetadata();
+      function PostAdditionalInformationPreview() {
+        function PostDatePreview() {
+          return (
+            <SmallText>{post.date}</SmallText>
+          );
+        }
+        function PostSomethingsPreview() {
+          const somethingAmount = parseInt(post.somethings);
+          const { something } = useSiteMetadata();
+
+          return (
+            <SmallText>{something.repeat(somethingAmount)}</SmallText>
+          );
+        }
 
         return (
-          <SmallText>{something.repeat(somethingAmount)}</SmallText>
+          <Row>
+            <PostDatePreview />
+            <PostSomethingsPreview />
+          </Row>
+        );
+      }
+      function PostDescriptionPreview() {
+        return (
+          <Text>{post.description}</Text>
         );
       }
 
       return (
-        <Row>
-          <PostDatePreview />
-          <PostSomethingsPreview />
-        </Row>
+        <>
+          <PostTitlePreview />
+          <PostAdditionalInformationPreview />
+          <PostDescriptionPreview />
+        </>
       );
     }
-    function PostDescriptionPreview() {
-      return (
-        <Text>{post.description}</Text>
-      );
-    }
-
-    return (
-      <>
-        <PostTitlePreview />
-        <PostAdditionalInformationPreview />
-        <PostDescriptionPreview />
-      </>
-    );
-  }
-  function PostPreviewList({ posts }) {
     return posts.map(post => <PostPreview key={post.slug} post={post} />);
   }
 
