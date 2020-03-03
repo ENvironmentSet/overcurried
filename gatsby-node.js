@@ -3,27 +3,25 @@ const { createFilePath } = require('gatsby-source-filesystem');
 
 exports.createPages = async ({ graphql, actions: { createPage } }) => {
   const Post = path.resolve('./src/components/templates/Post.js');
-  const result = await graphql(
-    `
-      {
-        allMarkdownRemark(
-          sort: { fields: [frontmatter___date], order: ASC }
-          limit: 1000
-        ) {
-          edges {
-            node {
-              fields {
-                slug
-              }
-              frontmatter {
-                title
-              }
+  const result = await graphql(`
+    {
+      allMarkdownRemark(
+        sort: { fields: [frontmatter___date], order: ASC }
+        limit: 1000
+      ) {
+        edges {
+          node {
+            fields {
+              slug
+            }
+            frontmatter {
+              title
             }
           }
         }
       }
-    `
-  );
+    }
+  `);
 
   if (result.errors) {
     throw result.errors;
@@ -60,10 +58,9 @@ exports.onCreateNode = ({ node, actions: { createNodeField }, getNode }) => {
   }
 };
 
-exports.onCreateWebpackConfig = ({ actions: { setWebpackConfig } }) => {
+exports.onCreateWebpackConfig = ({ actions: { setWebpackConfig } }) =>
   setWebpackConfig({
     resolve: {
       modules: [path.resolve(__dirname, 'src'), 'node_modules'],
     },
   });
-};
