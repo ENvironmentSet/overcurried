@@ -91,7 +91,7 @@ function transFunctionForArray<P, R>(f: (x: P) => R): (x: P[]) => R[] {
 }
 
 const add10ForArray = transFunctionForArray<number, number>(add10);
-const addAForArray = transFunctionForArray<string, number>(addA);
+const addAForArray = transFunctionForArray<string, string>(addA);
 ```
 우와, 코드가 엄청 간결해졌습니다. 
 이제 `transFunctionForArray` 함수를 통해 새로운 함수를 만들었을 때, 그 함수의 배열 버전 또한 쉽게 만들 수 있습니다!
