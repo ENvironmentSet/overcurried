@@ -5,6 +5,7 @@ import { Global, css } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
 import useSiteMetadata from 'utils/useSiteMetadata';
 import Theme from 'utils/theme';
+import 'array.prototype.flat';
 
 export default function AppEnvironment({ children }) {
   const { theme: themeConfiguration } = useSiteMetadata();
