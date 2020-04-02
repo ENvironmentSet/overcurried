@@ -190,7 +190,7 @@ const identity2: <forsome A>(a: A) => A // 어떤 타입 A에 대해 (a: A) => A
 이 사실은 `identity2`함수의 타입을 무한한 합 타입(*sum type*)으로 표현하면 더욱 잘 드러납니다.
 
 ```typescript
-const identuty2: 
+const identity2: 
   | ((a: number) => number)
   | ((a: boolean) => boolean)
   | ((a: string) => string)
