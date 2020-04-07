@@ -187,7 +187,7 @@ const identity2: <forsome A>(a: A) => A // 어떤 타입 A에 대해 (a: A) => A
 바로 identity2 함수는 호출될 수 없다는 점이지요.
 왜냐면 타입이 호출할 수 있을 만큼 구체적이지 않기 때문입니다.
 
-이 사실은 `identity2`함수의 타입을 무한한 합 타입(*sum type*)으로 표현하면 더욱 잘 드러납니다.
+이 사실은 `identity2` 함수의 타입을 무한한 합 타입(*sum type*)으로 표현하면 더욱 잘 드러납니다.
 
 ```typescript
 const identity2: 
@@ -198,7 +198,7 @@ const identity2:
   = a => a;
 ```
 
-보시다시피 `identity2`의 타입은 `((a: number) => number) | ((a: boolean) => boolean) | ...`으로, 호출할 수 있을 만큼의 구체적인 타입이 아닙니다.
+보시다시피, `identity2` 함수는 모든 타입의 값을 받을 수 있는 `identity` 함수와 달리 모든 타입의 값만을 받을 수 있습니다.
 
 `identity2`의 타입과 같이 존재 양화사를 통해 정의된 타입을 existential type이라 부르는데요, 이런 타입들은 한 가지 문제를 가지고 있습니다.
 바로 **한번 existential type으로 업캐스팅(*upcasting*)을 하면 타입 시스템이 이전 타입을 잊어 버리기 때문에 다시는 다운캐스팅(*downcasting*)을 할 수 없다는 점**입니다.
