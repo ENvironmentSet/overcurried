@@ -197,8 +197,3 @@ Fantasy Land와 같이 JavaScript 생태계에서 모듈 간의 대수 구조들
 모나드(*Monad*), 펑터와 같은 함수형 프로그래밍의 개념들을 쉽게 그림으로 설명하는 글 입니다.
 - [Monads are just monoids in the category of endofunctors](https://blog.merovius.de/2018/01/08/monads-are-just-monoids.html#footnote2_back)  
 모나드, 펑터와 같은 함수형 프로그래밍에 존재하는 범주론으로부터 빌려 온 개념들을 적절한 수준의 수학적 접근을 통해 설명하는 글 입니다.
-
-## 양해의 말
-
-입문자분들께 펑터와 같은 함수형 프로그래밍의 개념을 소개시켜드리기 위해 작성한 글이다 보니 어렵게 작성할 수 없어 내용을 쉽게 만드는 과정에서 아쉽게도 많은 내용들이 빠지거나 변형되었습니다.
-부디 이 점 양해해주셨으면 합니다. 🙇🙇
