@@ -63,7 +63,7 @@ type Maybe<A> = A | null;
 
 function fmap<A, B>(ma: Maybe<A>, f: (a: A) => B): Maybe<B> {
   if (ma === null) return null;
-  else return f(ma.value);
+  else return f(ma);
 }
 
 function pure<A>(value: A): Maybe<A> {
@@ -72,7 +72,7 @@ function pure<A>(value: A): Maybe<A> {
 
 function join<A>(mma: Maybe<Maybe<A>>): Maybe<A> {
   if (mma === null) return null;
-  else return mma.value; 
+  else return mma; 
 }
 ```
 
@@ -175,7 +175,7 @@ type Maybe<A> = A | null;
 
 function fmap<A, B>(ma: Maybe<A>, f: (a: A) => B): Maybe<B> {
   if (ma === null) return null;
-  else return f(ma.value);
+  else return f(ma);
 }
 
 function pure<A>(value: A): Maybe<A> {
@@ -184,7 +184,7 @@ function pure<A>(value: A): Maybe<A> {
 
 function join<A>(mma: Maybe<Maybe<A>>): Maybe<A> {
   if (mma === null) return null;
-  else return mma.value; 
+  else return mma; 
 }
 
 function fish<A, B, C>(f: (a: A) => Maybe<B>, g: (b: B) => Maybe<C>): (a: A) => Maybe<C> {
