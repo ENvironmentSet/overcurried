@@ -224,5 +224,5 @@ function fish<A, B, C>(f: (a: A) => Maybe<B>, g: (b: B) => Maybe<C>): (a: A) => 
 - [Monads for functional programming](https://homepages.inf.ed.ac.uk/wadler/papers/marktoberdorf/baastad.pdf)
 프로그래밍의 관점에서 모나드를 설명하는 글입니다.
 
-- [Computational lambda-calculus and monads](https://person.dibris.unige.it/moggi-eugenio/ftp/lics89.pdf)
-프로그래밍에 모나드를 처음 도입한 Eugenio Moggi의 논문입니다. 모나드의 시작이 궁금하시다면 보시는 걸 추천드립니다.
+- [Comprehending Monads](https://ncatlab.org/nlab/files/WadlerMonads.pdf)
+처음으로 프로그래밍에 모나드를 도입한 Philip Wadler의 논문입니다. 모나드의 시작이 궁금하시다면 보시는 걸 추천드립니다.
