@@ -2,8 +2,8 @@
 title: 3분 모나드  
 date: 2020-05-16  
 description: 그래서... 모나드가 뭔지 알고 싶으시다고요?  
-somethings: 2  
-keywords: 모나드, monad, 함수형 프로그래밍
+somethings: 3  
+keywords: 모나드, monad, 함수형 프로그래밍, functional programming, 합성, 연산
 ---
 
 주위에 함수형 프로그래머가 있으시다면, 하다못해 함수형 프로그래밍 커뮤니티 근처라도 가보셨다면, 한 번쯤은 꼭 들어 보셨을 법한 단어가 있습니다.
@@ -102,7 +102,7 @@ function compose<A, B, C>(f: (a: A) => Maybe<B>, g: (a: B) => Maybe<C>): (a: A) 
 
 범주 의미론은 쉽게 말해 카테고리 이론(*category theory*, a.k.a 범주론)의 개념들로 연산을 정의하는 방식입니다.
 카테고리 이론은 집합론의 반대에 해당하는 개념으로 '요소' 대신 '요소들 간의 관계'에 주목하여 추상적인 개념들을 다루고자 하는 수학 이론인데요, 이것이 무엇인지는 당장 크게 중요하지 않으니 더 이상 이야기 하지 않겠습니다.
-중요한 것은 모나드가 바로 이 이론의 개념이라는 점과, 유지니오 모기(*Eugenio Moggi*)라는 컴퓨터 과학자가 범주 의미론에서 **연산들이 모나드로 정의될 수 있다는 걸 발견했다는 점**입니다.
+중요한 것은 모나드가 바로 이 이론의 개념이라는 점과, 유지니오 모기(*Eugenio Moggi*)라는 컴퓨터 과학자가 범주 의미론에서 **모나드로 연산들을 정의하고 추상화 할 수 있다는 걸 발견했다는 점**입니다.
 
 그렇습니다. 프로그래밍에서 **모나드는 연산을 정의하고, 추상화 하기 위해 쓰이는 것**입니다.
 하지만 아직 의문점은 남아있습니다. 어떤 연산을 정의한다는 것이며 모나드로 연산을 정의하면 무엇이 좋길래 함수형 프로그래머들은 이걸 그리도 좋아하는 걸까요?
@@ -140,7 +140,7 @@ class List<T> {
 어떤 연산이 모나드로 정의된다면, 그 연산은 합칠 수 있습니다.
 프로그램은 곧 연산이고, 연산은 곧 프로그램입니다.
 그렇기에 **어떤 연산이 모나드로 정의된다면, 그 연산에 해당하는 모든 프로그램은 합쳐질 수 있습니다!**
-(일례로, '입출력 연산'은 모나드로 정의될 수 있습니다. 그렇기에 하스켈 프로그래머들은 '입출력 프로그램'들을 합치며 프로그램을 만들지요.)
+(일례로, 입출력 연산은 모나드로 정의될 수 있습니다. 그렇기에 하스켈 프로그래머들은 입출력 프로그램들을 합치며 프로그램을 만들지요.)
 
 지금까지의 모든 이야기를 종합하자면 모나드의 속뜻, 즉, **어떤 것이 모나드임이 시사하는 바는 그것이 합성될 수 있는 연산**이라는 겁니다.
 
@@ -159,23 +159,23 @@ class List<T> {
 그러나 지금은 이 정의의 각 부분이 무엇을 의미하는지 탐구할 수 있을 정도로 이야기가 진행되었기 때문에 지금부터는 정의를 분해해보며 각 부분이 어떤 의미를 담고 있는지 알아보도록 하겠습니다.
 
 먼저, 타입 `M`부터 살펴보도록 하겠습니다.
-타입 `M`은 연산 `M`을 의미하며 타입 `M<A>`는 `A` 타입의 연산 `M`을 의미합니다.
+**타입 `M`은 연산 `M`을 의미하며 타입 `M<A>`는 `A` 타입의 연산 `M`을 의미합니다.**
 예컨대, `M<number>`는 `number` 타입의 값을 만드는 연산 `M`을 의미하지요.
 그런데 타입 `M`은 연산과 어떤 관계길래 연산을 나타낸다고 하는 걸까요? 아까 보았었던 `Maybe` 타입의 구현도 그렇고, 지금 알아본 `M` 타입의 의미 또한 전혀 함수와 어떤 관련도 있어 보이지 않는데 말이죠.
 
 `M` 타입이 연산을 대표하는 이유는 모든 프로그램을 `A` 타입의 값을 받아 연산 `M`을 수행하여 `B` 타입의 값을 내놓는 함수라고 볼 수 있다는 점에서 찾을 수 있습니다.
 마치 모든 일차방정식이 `ax + b = 0` 꼴로 표현될 수 있는 것처럼, 모든 프로그램 또한 `A => M<B>` 타입으로 표현될 수 있는데요.
-여기서 타입 `A`와 `B`는 항상 중복되기 때문에 각 프로그램의 차이는 연산을 나타내는 타입 `M`으로부터 비롯됨을 알 수 있으며, 이는 '프로그램은 연산의 명세' 라는 직관과도 일치합니다.
+여기서 **타입 `A`와 `B`는 항상 중복되기 때문에 각 프로그램의 차이는 연산을 나타내는 타입 `M`으로부터 비롯됨**을 알 수 있으며, 이는 '프로그램은 연산의 명세' 라는 직관과도 일치합니다.
 그렇기에 타입 `M`을 두고 연산 `M`을 의미한다고 하는 것입니다.
 
 다음으로는 `compose` 함수의 의미에 대해 알아보도록 하겠습니다.
 `compose` 함수의 시그너쳐는 `<A, B, C>(f: (a: A) => M<B>, g: (a: B) => M<C>) => (a: A) => M<C>`로, 같은 연산을 하는 두 프로그램을 받아 하나로 합치는 형태이며 실제 동작도 마찬가지입니다.
 모나드가 '합성할 수 있는' 연산을 정의하고 추상화하는 도구라는 점, 잊지 않으셨지요?
 바로 이 함수가 모나드인 연산의 합성 가능성을 보장하는 함수입니다. 모나드가 되려면 이 함수를 구현해야 하기에, 모나드인 모든 연산들이 합성될 수 있다고 하는 것이지요.
-즉, `compose` 함수는 합성 가능한 연산들만이 모나드가 될 수 있게 하기 위해 존재하는 제한인 셈입니다.
+즉, **`compose` 함수는 합성 가능한 연산들만이 모나드가 될 수 있게 하기 위해 존재하는 제한**인 셈입니다.
 
 마지막으로, `pure` 함수의 의미에 대해 알아보도록 하겠습니다.
-`pure` 함수는 일반적인 값을 연산 `M`이 적용된 값인 것 처럼 꾸며 주는 함수입니다. 예컨대, `pure(1)`은 `1`을 결과로 하는 연산 `M`을 나타내지요.
+**`pure` 함수는 일반적인 값을 연산 `M`이 적용된 값인 것 처럼 꾸며 주는 함수**입니다. 예컨대, `pure(1)`은 `1`을 결과로 하는 연산 `M`을 나타내지요.
 이 함수의 쓸모에 대해 이야기하려면, 먼저 `id` 라고 불리는 함수에 대해 알아야 합니다.
 
 `id` 함수란, 주어진 입력을 그대로 반환하는 함수로. 아래와 같이 구현될 수 있습니다.
@@ -187,7 +187,7 @@ function id<A>(a: A): A {
 ```
 
 놀랍도록 간단한 이 함수는, 함수형 프로그래밍에 있어 가장 중요한 함수 중 하나입니다.
-이론적으로도, 실용적으로도 많은 면에서 다양하게 쓰이지만, 가장 쉬운 사용례로는 '함수의 몸집 키우기'가 있겠습니다.
+이론적으로도, 실용적으로도 많은 면에서 다양하게 쓰이지만, 가장 쉬운 사용례로는 **함수의 몸집 키우기**가 있겠습니다.
 
 예컨대, 임의의 튜플 `[A, B]`의 각 요소에 함수를 적용하는 함수, `bimap`이 있다 가정합시다.
 
@@ -217,7 +217,7 @@ function fmap2<A, B, C>(pair: [A, B], f: (b: B) => C): [A, C] {
 이렇게, `id` 함수는 작은 함수들을 조립해 큰 함수를 만들 때, 별다른 기능 없이 단순히 특정 자리를 채워 몸집만을 불리고 싶은 경우에 사용할 수 있습니다.
 하지만 이 함수는 `A => M<B>` 꼴이 아니기 때문에 모나드인 연산들을 다루는 경우에는 쉽게 사용할 수 없다는 문제점이 있습니다.
 (예컨대, `compose` 함수는 `id` 함수를 인자로 받지 않지요.)
-이를 해결하기 위한 것이 바로 `pure` 함수, 연산 `M`에 대한 `id` 함수입니다.
+이를 해결하기 위한 것이 바로 `pure` 함수, **연산 `M`에 대한 `id` 함수**입니다.
 
 ### 겉뜻에서 속뜻으로, 모나드는 이렇게 쓰인다.
 
@@ -225,7 +225,7 @@ function fmap2<A, B, C>(pair: [A, B], f: (b: B) => C): [A, C] {
 
 먼저, 모나드인 연산부터 정의해 보도록 하겠습니다.
 이번에 정의해 볼 연산은 입출력 연산입니다.
-입출력 연산은 외부 세계를 조작하는 연산으로, 외부 세계를 나타내는 값의 타입 `RealWorld`와 입출력 연산 결과의 타입 `A`를 통해, 외부 세계를 받아 수정된 외부 세계와 결과값을 내놓는 함수들의 타입, `RealWorld => [A, RealWorld]`으로 표현될 수 있습니다.
+**입출력 연산은 외부 세계를 조작하는 연산**으로, 외부 세계를 나타내는 값의 타입 `RealWorld`와 입출력 연산 결과의 타입 `A`를 통해, 외부 세계를 받아 수정된 외부 세계와 결과값을 내놓는 함수들의 타입, `RealWorld => [A, RealWorld]`으로 표현될 수 있습니다.
 가장 먼저, 입출력 연산을 나타낼 타입부터 정의해 보지요.
 
 ```typescript
@@ -258,15 +258,59 @@ function compose<A, B, C>(f: (a: A) => IO<B>, g: (a: B) => IO<C>): (a: A) => IO<
 }
 ```
 
-이렇게 입출력 연산을 정의해 보았습니다.
+이렇게 입출력 연산을 정의해 보았습니다. 이번에는 모나드인 연산들을 다루는 함수를 하나 정의해 보도록 하겠습니다.
+이번에 정의할 함수는 `bind`라고 불리는 함수로, 연산의 결과에 연산을 적용하는 함수입니다.
 
-// bind???
+```typescript
+/** 
+  타입스크립트에서, HKT(제네릭 타입)은 타입 변수로 전달받을 수 없기 때문에 실제로는 타입 레벨에서 트릭을 사용해 전달하곤 합니다.
+  그러나 지금은 주제에 집중하기 위해 HKT가 타입 변수로 전달될 수 있다고 가정하고 작성하겠습니다.
+**/
+interface Monad<M> {
+  pure<A>(a: A): M<A>;
+  compose<A, B, C>(f: (a: A) => M<B>, g: (a: B) => M<C>): (a: A) => M<C>
+}
+
+function bind<A, B, M>(m: Monad<M>, ma: M<A>, f: (a: A) => M<B>): M<B> {
+  return m.compose(() => ma, f);
+}
+```
+
+방금 정의한 `bind` 함수는 아래와 같이 사용할 수 있습니다.
+
+```typescript
+declare const IOMonad: Monad<IO>;
+declare function log(message: string): IO<void>;
+declare function get(message: string, defaultValue: string): IO<string>;
+declare function unsafePerformIO<A>(ioA: IO<A>): A;
+
+const main = bind(
+  IOMonad,
+  log('Welcome to monadic world'),
+  _ => bind(
+    IOMonad,
+    get('What\'s your name?', 'anonymous user'),
+    username => log(`Hi, ${username}`)
+  ),
+);
+
+unsafePerformIO(main);
+```
+
+이 코드에서 주목할 만한 점은, `unsafePerformIO` 함수의 호출 이전까지는 모두 순수한 연산이는 점입니다.
+**입출력 연산의 동작은 순수하지 않으나, 입출력 연산 그 자체는 순수**하기 때문에 입출력 연산을 조립해서 마지막에 실행시키는 방법으로 그 전까지의 모든 연산은 순수하게 유지한 것이지요.
+실제로 이 방식은 하스켈 등의 함수형 프로그래밍 언어에서 사용되는 방식입니다. 모나드의 좋은 사용례 중 하나지요.
+
+> **Notice**: 작동하는 실제 코드는 [여기](https://www.typescriptlang.org/play/?ssl=65&ssc=23&pln=1&pc=1#code/PQKhAIFgChwhJA5ANwKbgK4GdUBNwAuATgJYDGA1oQPbioB2Z1uJ9A5uABIDSAKgBTUi4AGYkiWAgFoyAGwCGWLODYNUpMlgCUMOOACa1DODLz6JgBapK4ALYBPQuJutCFksrYeCALnAWCAgAHLB9gYC9JADovAgsMACMopltgAFEAOWRxanpbBgIAZVQCYABGADYKgCZ5MoAWAAYRAE4WgGYADjKEsk6AVhFcCoTUfrLrXDIEhP7dCBBgGBhUAA8goQJwVgJ1EXkydB5ecABvXXAg+SJ5Wz8Megp6agB3egBuC6JULAxZX0wj2eb0+0AAvstoGsNkQtgR7EF0ABBIJBWT2AA8Ijoq129FwymOABpwKsAHwXAC84H42IAZGdLtdbn5VuAwVoANqIb6-f6IAC6oJgOz2B3QAFlcvJcBiJTi8QSuHwyYyLkEMN8MUiyfx5H4kVoDaj0XKSTrQeATNRbBscNqSQAhEkAYV1Ij8eoNWnAlNVKLRmIlTrJJLYnv14EdPr94ADpuD4DdRppkcNvv9JqDrrJoIh0Bg8MR4AASqh5LIAOpCWT4an0VBoIig0VEfaHcDwADyCoYSuOZy+Pz+AP43wr1aItb8ZYnNdwMdVnLiHm5VxutkFJNnVfnQpg+ZgIgeZAIJFygKw8hEqAACnshLZu9rdeekcbAxju+aySmkYPYGtehJHAcddynXAZ3LcDa19QFcFQMQG3wRRS2gyda2FQDvgITVzDfMd0PnLlGn3cFIWPRgzwvBJWFlJEnRJeU1kVQkVX4O5wClegZTlUNtmod84yzM0434j1U29DNhM-RNHV-D8ExDACrRwvC7GSG07VQfgAH1pLfEkRC0fgHgQpC8C0PMKJPajzCCUh6AIDifivVQ-EkRy2D-ETv3AZBqBIXBVXObCSnUsCMLrVV+CYYDqFkVAolkag2BcpR5FULQSU5MzENYPASUivcrIPGyqPPcxVGc-IMvc8BPNYDhqUQRASXM+QRwANQrDBUA84gmrg1qfM-PzGvYEKh1wohzGKiDpM5BytJq1zMtQH0AH5NvADrut61AiqIiCyMPaA4pA7tuJlPxrtlbtVWpUKrQ1LUdS9ONRtNPydRUq1QPC2aAbnBbY05eQjpB2syKtMEiQuFJtIdKMc1pCMpNjeNMT8+Sw3RqNFxk76uxzFMPvTTHfJJpMpsA1TAfMeRpPm2DY2e-6rQurYlu+ZAyz5AgSQcxsdyigU4JEPUTJZhcsI5+mZqq-hhb54d-hMlXReIy1-vzWGyoLc7chA2x5FcalaPxfgLiu6VcHhwCHJ2fhEErVBZBSdACFoWw7fIcAXnnRBsoufTY0t3Brbpzsuzuh2Oeql3KwseQCAAHUQZR7CMYQePyTa2vARAzFyexfewTAcCIYP4-+7B1Dz9BYydpz+AAA04EgSQAElOevZtuVAwTbnRAJD6BSsNh4rxve820fbsOLN+grKAA)에서 보일 수 있으십니다.
 
 ----
 
 이렇게 두 관점에서 관찰한 내용들을 합쳐 보았습니다. 이제 모나드가 무엇인지 정의를 내릴 때가 되었군요.
+첫 번째 관점에서 살펴본 **모나드의 정의는, 모나드인 타입이 나타내는 것이 합성 가능한 연산임을 보장하기 위한 요소들로 구성**되어 있었습니다.
+또한, 두 번째 관점에서 살펴본 **모나드의 의의는, 합성할 수 있는 연산을 정의하고 추상화 할 수 있다**는 데에 있었습니다.
+이를 종합하여 모나드를 정의하자면:
 
-**모나드란, 스스로를 합성할 수 있는 연산이다.**
+**모나드란, 합성할 수 있는 연산입니다.**
 
 ## 마무리
 
@@ -279,7 +323,7 @@ function compose<A, B, C>(f: (a: A) => IO<B>, g: (a: B) => IO<C>): (a: A) => IO<
 
 - 모나드의 겉뜻: **어떤 타입 `M`에 대해 두 함수, `pure`과 `compose`가 존재할 때, `M`은 모나드이다.**
 - 모나드의 속뜻: **어떤 연산이 모나드임이 시사하는 바는 그 연산은 합성할 수 있다는 점이다.**
-- 모나드: **모나드란, 스스로를 합성할 수 있는 연산이다.**
+- 모나드: **모나드란, 합성할 수 있는 연산이다.**
 
 ## 읽을거리
 
