@@ -258,7 +258,7 @@ function compose<A, B, C>(f: (a: A) => IO<B>, g: (a: B) => IO<C>): (a: A) => IO<
 }
 ```
 
-이렇게 입출력 연산을 정의해 보았습니다. 이번에는 모나드인 연산들을 다루는 함수를 하나 정의해 보도록 하겠습니다.
+이렇게 입출력 연산을 정의해 보았습니다. 다음으로, 모나드인 연산들을 다루는 함수를 하나 정의해 보도록 하겠습니다.
 이번에 정의할 함수는 `bind`라고 불리는 함수로, 연산의 결과에 연산을 적용하는 함수입니다.
 
 ```typescript
@@ -280,26 +280,22 @@ function bind<A, B, M>(m: Monad<M>, ma: M<A>, f: (a: A) => M<B>): M<B> {
 
 ```typescript
 declare const IOMonad: Monad<IO>;
-declare function log(message: string): IO<void>;
+declare function print(message: string): IO<void>;
 declare function get(message: string, defaultValue: string): IO<string>;
 declare function unsafePerformIO<A>(ioA: IO<A>): A;
 
 const main = bind(
   IOMonad,
-  log('Welcome to monadic world'),
+  print('Welcome to monadic world'),
   _ => bind(
     IOMonad,
     get('What\'s your name?', 'anonymous user'),
-    username => log(`Hi, ${username}`)
+    username => print(`Hi, ${username}`)
   ),
 );
 
 unsafePerformIO(main);
 ```
-
-이 코드에서 주목할 만한 점은, `unsafePerformIO` 함수의 호출 이전까지는 모두 순수한 연산이는 점입니다.
-**입출력 연산의 동작은 순수하지 않으나, 입출력 연산 그 자체는 순수**하기 때문에 입출력 연산을 조립해서 마지막에 실행시키는 방법으로 그 전까지의 모든 연산은 순수하게 유지한 것이지요.
-실제로 이 방식은 하스켈 등의 함수형 프로그래밍 언어에서 사용되는 방식입니다. 모나드의 좋은 사용례 중 하나지요.
 
 > **Notice**: 작동하는 실제 코드는 [여기](https://www.typescriptlang.org/play/?ssl=65&ssc=23&pln=1&pc=1#code/PQKhAIFgChwhJA5ANwKbgK4GdUBNwAuATgJYDGA1oQPbioB2Z1uJ9A5uABIDSAKgBTUi4AGYkiWAgFoyAGwCGWLODYNUpMlgCUMOOACa1DODLz6JgBapK4ALYBPQuJutCFksrYeCALnAWCAgAHLB9gYC9JADovAgsMACMopltgAFEAOWRxanpbBgIAZVQCYABGADYKgCZ5MoAWAAYRAE4WgGYADjKEsk6AVhFcCoTUfrLrXDIEhP7dCBBgGBhUAA8goQJwVgJ1EXkydB5ecABvXXAg+SJ5Wz8Megp6agB3egBuC6JULAxZX0wj2eb0+0AAvstoGsNkQtgR7EF0ABBIJBWT2AA8Ijoq129FwymOABpwKsAHwXAC84H42IAZGdLtdbn5VuAwVoANqIb6-f6IAC6oJgOz2B3QAFlcvJcBiJTi8QSuHwyYyLkEMN8MUiyfx5H4kVoDaj0XKSTrQeATNRbBscNqSQAhEkAYV1Ij8eoNWnAlNVKLRmIlTrJJLYnv14EdPr94ADpuD4DdRppkcNvv9JqDrrJoIh0Bg8MR4AASqh5LIAOpCWT4an0VBoIig0VEfaHcDwADyCoYSuOZy+Pz+AP43wr1aItb8ZYnNdwMdVnLiHm5VxutkFJNnVfnQpg+ZgIgeZAIJFygKw8hEqAACnshLZu9rdeekcbAxju+aySmkYPYGtehJHAcddynXAZ3LcDa19QFcFQMQG3wRRS2gyda2FQDvgITVzDfMd0PnLlGn3cFIWPRgzwvBJWFlJEnRJeU1kVQkVX4O5wClegZTlUNtmod84yzM0434j1U29DNhM-RNHV-D8ExDACrRwvC7GSG07VQfgAH1pLfEkRC0fgHgQpC8C0PMKJPajzCCUh6AIDifivVQ-EkRy2D-ETv3AZBqBIXBVXObCSnUsCMLrVV+CYYDqFkVAolkag2BcpR5FULQSU5MzENYPASUivcrIPGyqPPcxVGc-IMvc8BPNYDhqUQRASXM+QRwANQrDBUA84gmrg1qfM-PzGvYEKh1wohzGKiDpM5BytJq1zMtQH0AH5NvADrut61AiqIiCyMPaA4pA7tuJlPxrtlbtVWpUKrQ1LUdS9ONRtNPydRUq1QPC2aAbnBbY05eQjpB2syKtMEiQuFJtIdKMc1pCMpNjeNMT8+Sw3RqNFxk76uxzFMPvTTHfJJpMpsA1TAfMeRpPm2DY2e-6rQurYlu+ZAyz5AgSQcxsdyigU4JEPUTJZhcsI5+mZqq-hhb54d-hMlXReIy1-vzWGyoLc7chA2x5FcalaPxfgLiu6VcHhwCHJ2fhEErVBZBSdACFoWw7fIcAXnnRBsoufTY0t3Brbpzsuzuh2Oeql3KwseQCAAHUQZR7CMYQePyTa2vARAzFyexfewTAcCIYP4-+7B1Dz9BYydpz+AAA04EgSQAElOevZtuVAwTbnRAJD6BSsNh4rxve820fbsOLN+grKAA)에서 보일 수 있으십니다.
 
