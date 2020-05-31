@@ -326,21 +326,21 @@ unsafePerformIO(main);
 
 ## 읽을거리
 
-- [Category theory for programmers](https://bartoszmilewski.com/2014/10/28/category-theory-for-programmers-the-preface/)
+- [Category theory for programmers](https://bartoszmilewski.com/2014/10/28/category-theory-for-programmers-the-preface/)  
 모나드의 고향인 카테고리 이론을 프로그래밍의 개념들을 통해 설명하는 시리즈입니다. 모나드 이외에도 정말 많은 카테고리 이론의 개념들이 설명되어 있습니다.
 카테고리 이론을 정석대로 이해하고 싶으시다면 이 시리즈를 추천드립니다. 덧붙이자면, 유튜브에 실제 강의를 찍은 [영상](https://www.youtube.com/watch?v=I8LbkfSSR58&list=PLbgaMIhjbmEnaH_LTkxLI7FMa2HsnawM_)도 있습니다. 영상을 선호하신다면 유튜브에서 보시는 걸 추천드립니다.
 
-- [Monads are just monoids in the category of endofunctors](https://blog.merovius.de/2018/01/08/monads-are-just-monoids.html)
+- [Monads are just monoids in the category of endofunctors](https://blog.merovius.de/2018/01/08/monads-are-just-monoids.html)  
 모나드가 수학적으로 무엇인지 빠르게, 그러나 너무 얕지는 않게 익혀보고 싶으시다면 이 글을 추천드립니다. 선수 지식들을 포함한 속성 강좌입니다.
 
-- [A categorical view of computational effects](http://www.math.jhu.edu/~eriehl/lambda.pdf)
+- [A categorical view of computational effects](http://www.math.jhu.edu/~eriehl/lambda.pdf)  
 프로그래밍에서 모나드를 도입한 이론적인 배경을 설명하는 슬라이드입니다. 실제 컨퍼런스 발표의 슬라이드로, 유튜브에서 [영상](https://www.youtube.com/watch?v=Ssx2_JKpB3U&t=2036s)을 보실 수도 있으니 영상을 선호하신다면 유튜브에서 보시는 걸 추천드립니다.
 
-- [Monads for functional programming](https://homepages.inf.ed.ac.uk/wadler/papers/marktoberdorf/baastad.pdf)
+- [Monads for functional programming](https://homepages.inf.ed.ac.uk/wadler/papers/marktoberdorf/baastad.pdf)  
 프로그래밍의 관점에서 모나드를 설명하는 글입니다.
 
-- [Computational lambda-calculus and monads](https://person.dibris.unige.it/moggi-eugenio/ftp/lics89.pdf)
+- [Computational lambda-calculus and monads](https://person.dibris.unige.it/moggi-eugenio/ftp/lics89.pdf)  
 모나드를 통해 연산을 표현하는 방법이 처음으로 소개된 유지니오 모기의 논문입니다. 모나드의 시작이 궁금하시다면 보시는 걸 추천드립니다.
 
-- [Comprehending Monads](https://ncatlab.org/nlab/files/WadlerMonads.pdf)
+- [Comprehending Monads](https://ncatlab.org/nlab/files/WadlerMonads.pdf)  
 처음으로 실용적인 측면에서 프로그래밍에 모나드를 도입한 Philip Wadler의 논문입니다. 실용적인 모나드의 시작이 궁금하시다면 보시는 걸 추천드립니다.
