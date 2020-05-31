@@ -330,7 +330,7 @@ _ => undefined
 ```
 
 > **심화 문제 #7**  
-`forall B. forsome A. (x: A) => B` 타입을 보편 양화사만 사용해서 표현해 보세요.
+`<forall B, forsome A>(x: A) => B` 타입을 보편 양화사만 사용해서 표현해 보세요.
 
 ----
 
