@@ -340,7 +340,7 @@ unsafePerformIO(main);
 프로그래밍의 관점에서 모나드를 설명하는 글입니다.
 
 - [Computational lambda-calculus and monads](https://person.dibris.unige.it/moggi-eugenio/ftp/lics89.pdf)  
-모나드를 통해 연산을 표현하는 방법이 처음으로 소개된 유지니오 모기의 논문입니다. 모나드의 시작이 궁금하시다면 보시는 걸 추천드립니다.
+모나드를 통해 연산을 표현하는 방법이 처음으로 소개된 유지니오 모기 박사님의 논문입니다. 모나드의 시작이 궁금하시다면 보시는 걸 추천드립니다.
 
 - [Comprehending Monads](https://ncatlab.org/nlab/files/WadlerMonads.pdf)  
-처음으로 실용적인 측면에서 프로그래밍에 모나드를 도입한 Philip Wadler의 논문입니다. 실용적인 모나드의 시작이 궁금하시다면 보시는 걸 추천드립니다.
+처음으로 실용적인 측면에서 프로그래밍에 모나드를 도입한 필립 와들러 박사님의 논문입니다. 실용적인 모나드의 시작이 궁금하시다면 보시는 걸 추천드립니다.
