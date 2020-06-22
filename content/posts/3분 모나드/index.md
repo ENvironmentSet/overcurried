@@ -210,7 +210,7 @@ function fmap<A, B, C>([a, b]: [A, B], f: (b: B) => C): [A, C] {
 
 ```typescript
 function fmap2<A, B, C>(pair: [A, B], f: (b: B) => C): [A, C] {
-  return bimap(pair, f, id);
+  return bimap(pair, id, f);
 }
 ```
 
