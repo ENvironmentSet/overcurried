@@ -46,7 +46,7 @@ declare const untypedModule: any;
 ### 서브타입 관계
 
 **다른 한 타입을 포함하는 타입**을 **슈퍼타입(*supertype*)**이라고 하고, **슈퍼타입에 포함되는 타입**을 **서브타입(*subtype*)**이라고 합니다.
-'타입을 포함한다'의 기준은 타입 시스템 별로 다르지만 구조적 타입 시스템(*structural type system*)을 가진 [타입스크립트의 경우, 한 타입이 다른 한 타입의 값을 모두 포함하고 있으면 그 타입을 포함한다고 합니다](https://github.com/microsoft/TypeScript/blob/master/doc/spec.md#3.11.3).
+'타입을 포함한다'의 기준은 타입 시스템 별로 다르지만 구조적 타입 시스템(*structural type system*)을 가진 [타입스크립트의 경우, 한 타입이 다른 한 타입의 값을 모두 포함하고 있으면 그 타입을 포함한다고 합니다](https://github.com/microsoft/TypeScript/blob/master/doc/spec-ARCHIVED.md#3113-subtypes-and-supertypes).
 
 ```typescript
 type Supertype = { x: boolean }
