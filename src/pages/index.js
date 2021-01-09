@@ -6,7 +6,7 @@ import HyperLink from 'components/atoms/HyperLink';
 import Row from 'components/templates/Row';
 import { Text, SmallText, H3Text } from 'components/atoms/Text';
 import Accent from 'components/atoms/Accent';
-import { rhythm } from 'utils/typography';
+import { rhythm, scale } from 'utils/typography';
 import useConstant from 'utils/useConstant';
 import useSiteMetadata from 'utils/useSiteMetadata';
 import { graphql } from 'gatsby';
@@ -33,8 +33,12 @@ export default function Index({ data: { allMarkdownRemark: { edges } } }) {
       }
       function PostAdditionalInformationPreview() {
         function PostDatePreview() {
+          const PostDate = useConstant(() => styled(SmallText)`
+            ${scale(-1/7)};
+          `);
+
           return (
-            <SmallText>{post.date}</SmallText>
+            <PostDate>{post.date}</PostDate>
           );
         }
         function PostSomethingsPreview() {

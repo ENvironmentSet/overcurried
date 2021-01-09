@@ -41,7 +41,7 @@ export default function Post(
       const PostDate = useConstant(() => styled(Text)`
         display: block;
         margin-bottom: ${rhythm(1)};
-        ${scale(-1/5)};
+        ${scale(-1/7)};
       `);
       function PostSomethings() {
         const somethingAmount = parseInt(somethings);
