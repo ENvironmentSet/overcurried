@@ -4,7 +4,6 @@ date: 2021-02-11
 description: 커링에 대해 더 깊게 알아봅시다.  
 somethings: 1  
 keywords: 커링, Currying, 함수형 프로그래밍, functional programming
-target: 커링을 조금만 아는 사람들, 커링을 알고 싶은 사람들
 ---
 
 # 다시보는 커링
