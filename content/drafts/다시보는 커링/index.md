@@ -1,6 +1,6 @@
 ---
 title: 다시보는 커링  
-date: 2021-02-11  
+date: 2021-02-12  
 description: 커링에 대해 더 깊게 알아봅시다.  
 somethings: 1  
 keywords: 커링, Currying, 함수형 프로그래밍, functional programming
