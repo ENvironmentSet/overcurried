@@ -1,7 +1,7 @@
 ---
 title: 유령 타입   
 date: 2021-10-18  
-description: 그 손에 쥐신 돌 좀 내려놓고 한번 들어봐 주세요.  
+description: 무서운 녀석은 아니니까 겁 먹지 마세요. 
 somethings: 2  
 keywords: Phantom type, Phantom type parameter, 팬텀 타입, 유령 타입, 타입스크립트
 ---
@@ -96,16 +96,18 @@ type S<N> = PhantomTypeParameter<'N', N>;
 
 ## 타입스크립트에서의 유령 타입
 
-타입스크립트의 타입 시스템은 타입의 구조를 기준으로 타입 검사가 이루어지는 [구조적 타입 시스템(Structural type system)](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html#structural-type-system)이기 때문에 유령 타입 매개변수들은 실질적인 의미를 갖지 못합니다. 타입스크립트에서는 일반적인 방법으로 유령 타입의 효과를 누릴 수 없습니다.
+타입스크립트의 타입 시스템은 타입의 구조를 기준으로 타입 검사가 이루어지는 [구조적 타입 시스템(Structural type system)](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html#structural-type-system)이기 때문에 타입의 구조에 영향을 주지 않는 유령 타입 매개변수들은 실질적인 의미를 갖지 못합니다. 타입스크립트에서는 일반적인 방법으로 유령 타입의 효과를 누릴 수 없습니다.
 
 ```typescript
 type Z = 'Z';
 type S<N> = never; // S<Z>와 S<S<Z>>의 구조가 같기 때문에 둘은 동일하게 취급됩니다.
 ```
 
-따라서 우회적으로 유령 타입 매개변수를 표현해야 합니다. 가장 간단한 방법으로는 유령 타입 매개변수를 타입 구조에 포함시키되, 실제 코드에서는 이를 무시하여 유령 타입 매개변수처럼 대하는 방법입니다.
+따라서 우회적으로 유령 타입 매개변수를 표현해야 합니다. 가장 간단한 방법은 유령 타입 매개변수를 타입 구조에 포함시키되, 실제 코드에서는 이를 무시하여 유령 타입 매개변수처럼 대하는 방법입니다.
 ```typescript
-interface PhantomTypeParameter<InstantiatedType> = { _: InstantiatedType };
+interface PhantomTypeParameter<InstantiatedType> { 
+  _: InstantiatedType
+}
 type Client<Permission> = { name: string, level: number, gameMode: GameMode } & PhantomTypeParameter<Permission>;
 
 function client<Permission>(name: string): Client<Permission> {
@@ -118,14 +120,14 @@ function client<Permission>(name: string): Client<Permission> {
 ```typescript
 const john = client<User>('john');
 
-john.permission; // 문제 없는 코드
+john.permission; // 타입 검사에서는 문제 없는 코드, 그러나 실제로는 문제 발생
 ```
 
-단순히 “이 필드는 타입 시스템을 속이기 위해 만든 더미(dummy) 필드니까 우리 모두 접근하지 맙시다” 라는 약속만으로는 충분하지 않습니다. 더미 필드에 접근할 수 없도록 타입을 수정해야 합니다.
+단순히 “이 필드는 타입 시스템을 속이기 위해 만든 더미 필드니까 우리 모두 접근하지 맙시다” 라는 약속만으로는 충분하지 않습니다. 더미 필드에 접근할 수 없도록 타입을 수정해야 합니다.
 
 ```typescript
 abstract class PhantomTypeParameter<InstantiatedType> {
-  abstract protected _: InstantiatedType;
+  protected abstract _: InstantiatedType;
 }
 
 type Client<Permission> = { name: string, level: number, gameMode: GameMode } & PhantomTypeParameter<Permission>;
@@ -153,7 +155,7 @@ type Client<Permission, Something> =
   & PhantomTypeParameter<'Something', Something>;
 ```
 
-마지막으로, 유령 타입 매개변수에 주어진 타입이 다른 유령 타입은 다르게 취급되어야 합니다. 즉, `Client<User>`와 `Client<User | Admin>`은 다른 타입으로 인식되어야 합니다. 이는 유령 타입 매개변수들이 [무공변적(invariant)](https://stackoverflow.com/questions/8481301/covariance-invariance-and-contravariance-explained-in-plain-english)이게 강제함으로서 만족시킬 수 있습니다.
+마지막으로, 유령 타입 매개변수에 주어진 타입이 다른 유령 타입은 다르게 취급되어야 합니다. 즉, `Client<User>`와 `Client<User | Admin>`은 다른 타입으로 인식되어야 합니다. 이는 유령 타입 매개변수들이 [무공변적(invariant)](https://stackoverflow.com/questions/8481301/covariance-invariance-and-contravariance-explained-in-plain-english)이게 만듦으로써 만족시킬 수 있습니다.
 
 ```typescript
 abstract class PhantomTypeParameter<Identifier extends string | number | symbol, InstantiatedType> {
