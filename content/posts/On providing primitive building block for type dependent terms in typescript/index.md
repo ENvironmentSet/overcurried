@@ -19,7 +19,11 @@ function literalTypeToValue<N extends number | string | boolean | null | undefin
 함수 오버로딩 기능을 사용하면 비슷하게나마 처리할 수 있으나 인코딩하는 과정에서 코드가 번잡해져 가독성이 낮아지고 이 방법으로도 해결할 수 없는 경우가 존재한다는 문제점이 있습니다.
 
 ```typescript
-function literalTypeToValue<N extends number | string | boolean | null | undefined>(value: N): N {
+function literalTypeToValue<T extends number>(value: T): T
+function literalTypeToValue<T extends string>(value: T): T
+function literalTypeToValue<T extends boolean>(value: T): T
+// 비슷한 코드가 이어집니다.
+function literalTypeToValue(value: any): any {
   switch(typeof value) {
     case 'number':
       return value;
