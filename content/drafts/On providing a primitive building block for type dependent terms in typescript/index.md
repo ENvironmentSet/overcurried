@@ -1,5 +1,5 @@
 ---
-title: On providing primitive building block for type dependent terms in typescript 
+title: On providing a primitive building block for type dependent terms in typescript 
 date: 2022-01-02  
 description: 타입에 의존하는 코드를 만드는 또 하나의 방법을 소개합니다.  
 somethings: 1  
