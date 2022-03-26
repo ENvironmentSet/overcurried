@@ -47,10 +47,17 @@ else {
       'gatsby-transformer-sharp',
       'gatsby-plugin-sharp',
       {
-        resolve: 'gatsby-plugin-google-analytics',
+        resolve: 'gatsby-plugin-gtag',
         options: {
           head: true,
           trackingId: config.gaTrackingId || '',
+        },
+      },
+      {
+        resolve: 'gatsby-plugin-gtag',
+        options: {
+          head: true,
+          trackingId: config.ga4TrackingId || '',
         },
       },
       {

@@ -16,7 +16,7 @@
     "emotion-theming": "^10.0.27",
     "gatsby-image": "^2.4.19",
     "gatsby-plugin-feed": "^2.5.12",
-    "gatsby-plugin-google-analytics": "^2.3.14",
+    "gatsby-plugin-gtag": "^1.0.13",
     "gatsby-plugin-manifest": "^2.4.31",
     "gatsby-plugin-offline": "^2.2.10",
     "gatsby-plugin-react-helmet": "^3.3.11",
@@ -95,6 +95,7 @@
       ]
     },
     "gaTrackingId": "UA-131792068-2",
+    "ga4TrackingId": "G-BCYKQQHRK2",
     "useIcon": false
   },
   "devDependencies": {
