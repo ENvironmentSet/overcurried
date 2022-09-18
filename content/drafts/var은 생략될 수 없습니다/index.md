@@ -23,7 +23,7 @@ a = 1; // 이것과 같다는 이야기입니다.
 
 가장 확실한 레퍼런스죠, [자바스크립트의 명세](https://www.ecma-international.org/publications/standards/Ecma-262.htm)의 [var 문 정의](https://www.ecma-international.org/ecma-262/10.0/index.html#sec-variable-statement)에는 `var` 예약어가 var 문에서 필수적인 요소임이 나타나 있습니다.
 
-![var 문 정의](./var-statement-definition.png)
+![var 문 정의](var-statement-definition.png)
 
 위 사진은 var 문의 문법 정의입니다. `var` 문이라고 부를 수 있는 코드의 형태가 묘사되어 있지요. 하지만 `var`을 포함하지 않는 형태는 찾아볼 수 없습니다.
 즉, 흔히 "변수 선언을 내포한/`var`을 생략한 형태이다" 라고 언급하는 `variable = value` 꼴의 코드는 **var 문이 아닙니다**.
