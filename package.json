@@ -99,6 +99,6 @@
     "useIcon": false
   },
   "devDependencies": {
-    "gatsby": "^2.24.65"
+    "gatsby": "^5.3.3"
   }
 }
