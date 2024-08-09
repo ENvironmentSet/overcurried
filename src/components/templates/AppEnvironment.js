@@ -183,4 +183,8 @@ const buildGlobalStyle = ({ backgroundColor }) =>
       padding-right: 1em;
       padding-left: 0.75em;
     }
+    
+    body {
+      word-break: keep-all;
+    }
   `;
