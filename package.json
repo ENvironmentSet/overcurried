@@ -52,7 +52,7 @@
     "url": "git+https://github.com/ENvironmentSet/overcurried.git"
   },
   "scripts": {
-    "build": "gatsby build",
+    "build": "NODE_OPTIONS=--openssl-legacy-provider gatsby build",
     "develop": "gatsby develop",
     "start": "npm run develop",
     "serve": "gatsby serve"
