@@ -67,7 +67,7 @@ else {
           description: siteMetadata.description,
           start_url: '/',
           background_color: '#212121',
-          theme_color: '#FF9800',
+          theme_color: '#212121',
           display: 'minimal-ui',
           [config.useIcon && 'icon']: 'content/assets/icon.ico'
         },
