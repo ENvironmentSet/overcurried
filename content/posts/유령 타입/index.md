@@ -143,7 +143,7 @@ type Client<Permission, Something> =
 앞선 구현에서는 모든 유령 타입 매개변수가 `_` 라는 더미 필드에 저장되기 때문에 여러 개의 유령 타입 매개변수를 정의하고자 한다면 골치아픈 문제가 발생합니다. 이는 각 유령 타입 매개변수를 정의할 때 고유한 식별자를 부여하게 하는 방법으로 해결할 수 있습니다.
 
 ```typescript
-abstract class PhantomTypeParameter<Identifier extends string | number | symbol, InstantiatedType> {
+abstract class PhantomTypeParameter<Identifier extends keyof never, InstantiatedType> {
   protected abstract _: {
     readonly [NameP in Identifier]: InstantiatedType;
   };
@@ -158,7 +158,7 @@ type Client<Permission, Something> =
 마지막으로, 유령 타입 매개변수에 주어진 타입이 다른 유령 타입은 다르게 취급되어야 합니다. 즉, `Client<User>`와 `Client<User | Admin>`은 다른 타입으로 인식되어야 합니다. 이는 유령 타입 매개변수들이 [무공변적(invariant)](https://stackoverflow.com/questions/8481301/covariance-invariance-and-contravariance-explained-in-plain-english)이게 만듦으로써 만족시킬 수 있습니다.
 
 ```typescript
-abstract class PhantomTypeParameter<Identifier extends string | number | symbol, InstantiatedType> {
+abstract class PhantomTypeParameter<Identifier extends keyof never, InstantiatedType> {
   protected abstract _: {
     readonly [NameP in Identifier]: (_: InstantiatedType) => InstantiatedType;
   };
