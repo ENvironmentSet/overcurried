@@ -52,7 +52,7 @@ export default function BaseLayout({ children }) {
 
     return (
       <Row>
-        {github && <HyperLink to={`https://github.com/${github}`}>Github</HyperLink>}
+        {github && <HyperLink to={`https://github.com/${github}`}>GitHub</HyperLink>}
         {twitter && <HyperLink to={`https://twitter.com/${twitter}`}>Twitter</HyperLink>}
         {email && <HyperLink to={`mailto:${email}`}>Email</HyperLink>}
       </Row>
